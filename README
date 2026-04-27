@@ -1,0 +1,58 @@
+# Work Flow
+
+個人工作流程工具集，整合 GitHub CLI 快速查看與管理 Issues 和 Pull Requests。
+
+## 需求
+
+- [GitHub CLI (gh)](https://cli.github.com/) 已安裝並完成認證
+- Bash 4.0+
+- [just](https://github.com/casey/just) 或 make（擇一）
+
+## 快速開始
+
+```bash
+# 使用 just
+just gh-overview
+
+# 使用 make
+make gh-overview
+```
+
+## 指令列表
+
+| 指令 | 說明 |
+|------|------|
+| `gh-overview` | 查看我的 GitHub Issues/PR |
+| `commands-count` | 顯示目前指令總數 |
+
+## gh-overview 選項
+
+```bash
+./scripts/gh_overview.sh [options]
+
+Options:
+  --state <open|closed|all>   篩選狀態 (預設: open)
+  --repo <owner/name>         限定單一 repository
+  --limit <n>                 每區塊顯示數量 (預設: 20)
+  -h, --help                  顯示說明
+```
+
+### 範例
+
+```bash
+# 查看所有 open 的 issues 和 PR
+just gh-overview
+
+# 只看 closed 的項目
+just gh-overview --state closed
+
+# 限定特定 repo
+just gh-overview --repo owner/repo-name
+
+# 顯示最多 50 筆
+just gh-overview --limit 50
+```
+
+## 授權
+
+MIT
